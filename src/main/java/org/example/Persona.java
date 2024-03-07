@@ -7,14 +7,8 @@ import java.util.List;
  * @author JohnPaul
  * @version 1.0
  */
-class Contacto {
-    /**
-     * Variable para el nombre
-     */
+class Persona {
     private String name;
-    /**
-     * Variable para los teléfonos
-     */
     private List<String> phones;
 
     /**
@@ -22,13 +16,15 @@ class Contacto {
      * @param name es la variable para los nombres
      * @param phone es la variable para los telefonos
      */
-    public Contacto(String name, String phone) {
-        this.name = name;
-        this.phones = new ArrayList<>();
-        this.phones.add(phone);
+    public Persona(String name, String phone) {
+        this.setName(name);
+        this.setPhones(new ArrayList<>());
+        this.getPhones().add(phone);
     }
 
     /**
+     * Variable para el nombre
+     */ /**
      * Coge el nombre
      * @return valor nombre
      */
@@ -37,10 +33,20 @@ class Contacto {
     }
 
     /**
+     * Variable para los teléfonos
+     */ /**
      *  Coge el número de teléfono
      * @return número de teléfono
      */
     public List<String> getPhones() {
         return this.phones;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPhones(List<String> phones) {
+        this.phones = phones;
     }
 }

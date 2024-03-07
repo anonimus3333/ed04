@@ -7,12 +7,12 @@ import java.util.*;
  * @version 1.0
  */
 
-public class Agenda {
+public class Agenda implements IAgenda {
     /**
      * Lista de contactos
      */
 
-    private List<Contacto> contacts;
+    private List<Persona> contacts;
 
     /**
      * Crea un array de contactos
@@ -26,9 +26,10 @@ public class Agenda {
      * @param phone variable para los teléfonos
      *
      */
+    @Override
     public void addContact(String name, String phone) {
         boolean exists = false;
-        for (Contacto c : contacts) {
+        for (Persona c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
                 exists = true;
                 c.getPhones().add(phone);
@@ -37,16 +38,17 @@ public class Agenda {
         }
 
         if (!exists) {
-            Contacto newContact = new Contacto(name, phone);
+            Persona newContact = new Persona(name, phone);
             contacts.add(newContact);
         }
     }
 
+    @Override
     public void removeContact(String name) {
-        Iterator<Contacto> it = contacts.iterator();
+        Iterator<Persona> it = contacts.iterator();
 
         while (it.hasNext()) {
-            Contacto c = it.next();
+            Persona c = it.next();
 
             if (c.getName().equalsIgnoreCase(name)) {
                 it.remove();
@@ -54,8 +56,9 @@ public class Agenda {
         }
     }
 
+    @Override
     public void modifyPhoneNumber(String name, String oldPhone, String newPhone) {
-        for (Contacto c : contacts) {
+        for (Persona c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
                 List<String> phones = c.getPhones();
 
@@ -68,7 +71,8 @@ public class Agenda {
         }
     }
 
-    public List<Contacto> getContacts() {
+    @Override
+    public List<Persona> getContacts() {
         return this.contacts;
     }
 }
