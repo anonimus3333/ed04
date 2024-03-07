@@ -2,13 +2,30 @@ package org.example;
 
 import java.util.*;
 
-public class Agenda {
-    private List<Contacto> contacts; // Lista de Contacto
+/**
+ * @author JohnPaul
+ * @version 1.0
+ */
 
+public class Agenda {
+    /**
+     * Lista de contactos
+     */
+
+    private List<Contacto> contacts;
+
+    /**
+     * Crea un array de contactos
+     */
     public Agenda() {
         this.contacts = new ArrayList<>();
     }
 
+    /**
+     * @param name variable para los nombre
+     * @param phone variable para los teléfonos
+     *
+     */
     public void addContact(String name, String phone) {
         boolean exists = false;
         for (Contacto c : contacts) {
